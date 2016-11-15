@@ -4,10 +4,10 @@
     <link rel="stylesheet" href="css/mystyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
 <input type="submit" value="Add Task" onclick="window.location='jsp/add_task.jsp'" style="font-size:12px"><br>
-<table>
-
+<h2>TO DO</h2>
+<div class="list">
+<table >
     <c:forEach items="${taskList}" var="task">
         <tr>
             <c:if test="${!task.view}">
@@ -32,7 +32,11 @@
             </c:if>
         </tr>
     </c:forEach>
-
+    </table>
+    </div>
+<h2>Done Tasks</h2>
+<div class="toDo">
+<table>
     <c:forEach items="${taskList}" var="task">
         <tr>
             <c:if test="${task.view}">
@@ -58,9 +62,7 @@
             </c:if>
         </tr>
     </c:forEach>
-
 </table>
-
-
+    </div>
 </body>
 </html>

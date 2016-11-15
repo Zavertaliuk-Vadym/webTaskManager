@@ -32,3 +32,10 @@ a{
 a:link{
     color: red;
 }
+
+.list{
+    background-color: purple;
+}
+.toDo{
+    background-color: aqua;
+}
