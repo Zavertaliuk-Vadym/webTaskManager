@@ -11,12 +11,20 @@ public class Task {
     private String taskId;
     private String title;
     private String details;
-    private List<Task> messages = new ArrayList<>();
+    private  boolean view = false;
 
-    public Task(String taskId, String title,String details) {
+
+    public Task(String taskId, String title, String details) {
         this.taskId = taskId;
         this.title = title;
         this.details = details;
+    }
+    public boolean isView() {
+        return view;
+    }
+
+    public void setView(boolean view) {
+        this.view = view;
     }
 
     public String getTitle() {
@@ -25,18 +33,6 @@ public class Task {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public void addMessage(Task task){
-        messages.add(task);
-    }
-
-    public List<Task> getMessages(){
-        return messages;
-    }
-
-    public Integer getMessagesValues(){
-        return messages.size();
     }
 
     public String getTaskId() {
