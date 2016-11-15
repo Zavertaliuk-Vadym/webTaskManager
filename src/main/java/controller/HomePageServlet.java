@@ -36,7 +36,7 @@ public class HomePageServlet extends HttpServlet {
                 try {
                     Task task = (Task) session.getAttribute(i + "");
                     taskList.add(task);
-                    System.out.println(task.getTaskTitle());
+                    System.out.println(task.getTitle());
                 }catch (NullPointerException e){
 
                 }

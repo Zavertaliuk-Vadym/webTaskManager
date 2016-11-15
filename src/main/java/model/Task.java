@@ -9,21 +9,21 @@ import java.util.List;
 public class Task {
 
     private String taskId;
-    private String taskTitle;
+    private String title;
     private String details;
     private List<Task> messages = new ArrayList<>();
 
-    public Task(String taskId, String taskTitle) {
+    public Task(String taskId, String title) {
         this.taskId = taskId;
-        this.taskTitle = taskTitle;
+        this.title = title;
     }
 
-    public String getTaskTitle() {
-        return taskTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTaskTitle(String taskTitle) {
-        this.taskTitle = taskTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void addMessage(Task task){

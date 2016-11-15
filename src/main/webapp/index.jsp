@@ -10,11 +10,11 @@
     <c:forEach items="${taskList}" var="item">
         <tr>
             <td>
-                    ${item.taskTitle}
+                    ${item.title}
             </td>
             <td>
                 <a href="/messages?task=${item.taskId}">
-                <i class="material-icons" style="color: green; font-size:14px">announcement</i>
+                <i class="material-icons" style="color: red; font-size:14px">announcement</i>
                 ${item.messagesValues}</a>
             </td>
         </tr>
