@@ -8,8 +8,12 @@
 <body>
 <input type="submit" value="Home" onclick="window.location='/home'"><br>
 <table>
-    ${task.title}
-    ${task.details}
+    <h4>Title:</h4>
+    ${task.title}<br>
+    <h4>Details:</h4>
+    ${task.details}<br>
+    <h4>Creation time:</h4>
+    ${task.localTime}
 </table>
 </body>
 </html>

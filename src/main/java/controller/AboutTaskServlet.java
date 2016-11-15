@@ -21,6 +21,7 @@ public class AboutTaskServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         Task task = (Task) session.getAttribute(req.getParameter("task") + "");
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/about.jsp");
+        System.out.println("task="+task.getLocalTime());
         req.setAttribute("task", task);
         dispatcher.forward(req, resp);
     }

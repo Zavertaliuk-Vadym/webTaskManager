@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * Created by yurik on 14.11.16.
@@ -35,7 +36,7 @@ public class NewTaskServlet extends HttpServlet{
             }
         }
         session.setAttribute("counter", counter);
-        session.setAttribute(counter +"",  new Task(counter + "", req.getParameter("new_task"),req.getParameter("new_description")));
+        session.setAttribute(counter +"",  new Task(counter + "", req.getParameter("new_task"),req.getParameter("new_description"),new Date(System.currentTimeMillis()).toString()));
         resp.sendRedirect("/home");
     }
 

@@ -1,6 +1,8 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,13 +13,15 @@ public class Task {
     private String taskId;
     private String title;
     private String details;
-    private  boolean view = false;
+    private boolean view = false;
+    private String localTime ;
 
 
-    public Task(String taskId, String title, String details) {
+    public Task(String taskId, String title, String details,String localTime) {
         this.taskId = taskId;
         this.title = title;
         this.details = details;
+        this.localTime=localTime;
     }
     public boolean getView() {
         return view;
@@ -45,5 +49,13 @@ public class Task {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public String getLocalTime() {
+        return localTime;
+    }
+
+    public void setLocalTime(String localTime) {
+        this.localTime = localTime;
     }
 }
