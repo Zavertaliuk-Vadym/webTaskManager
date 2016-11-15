@@ -35,10 +35,12 @@ public class HomePageServlet extends HttpServlet {
             for (int i = 1; i <= listLength; i++) {
                 try {
                     Task task = (Task) session.getAttribute(i + "");
+                    System.out.println("session.getAttribute="+session.getAttribute(i + ""));
+                    System.out.println("task"+task);
+                    System.out.println("ID="+task.getTaskId());
                     taskList.add(task);
-                    System.out.println(task.getTitle());
+                    System.out.println("Title"+task.getTitle());
                 }catch (NullPointerException e){
-
                 }
             }
         }

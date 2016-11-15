@@ -13,9 +13,10 @@ public class Task {
     private String details;
     private List<Task> messages = new ArrayList<>();
 
-    public Task(String taskId, String title) {
+    public Task(String taskId, String title,String details) {
         this.taskId = taskId;
         this.title = title;
+        this.details = details;
     }
 
     public String getTitle() {

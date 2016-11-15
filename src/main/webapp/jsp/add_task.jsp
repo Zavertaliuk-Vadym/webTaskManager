@@ -6,6 +6,7 @@
 <a href="/home">Back</a>
 <form action="/newTask">
     <input type="text" name="new_task" placeholder="add task" required>
+    <input type="text" name="new_description" placeholder="add description" required>
     <input type="submit" value="Add Task"><br>
 </form>
 </body>
