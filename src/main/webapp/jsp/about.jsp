@@ -8,7 +8,6 @@
 <body>
 <input type="submit" value="Home" onclick="window.location='/home'"><br>
 <table>
-    ${task.taskId}
     ${task.title}
     ${task.details}
 </table>
