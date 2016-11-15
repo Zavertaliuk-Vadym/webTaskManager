@@ -19,7 +19,7 @@ public class Task {
         this.title = title;
         this.details = details;
     }
-    public boolean isView() {
+    public boolean getView() {
         return view;
     }
 
