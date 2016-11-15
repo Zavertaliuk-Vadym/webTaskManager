@@ -28,7 +28,6 @@ public class Main {
         page.setErrorCode(404);
         page.setLocation("/home");
         ctx.addErrorPage(page);
-
         File additionWebInfClassesFolder = new File("target/classes");
         WebResourceRoot resources = new StandardRoot(ctx);
 
