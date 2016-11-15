@@ -16,7 +16,7 @@
             <td>
                 <a href="/messages?task=${item.taskId}">
                     <i class="material-icons" style="font-size:36px">chrome_reader_mode</i>
-                    ${item.messagesValues}</a>
+                </a>
             </td>
             <td>
                 <a href="/delete?task=${item.taskId}">

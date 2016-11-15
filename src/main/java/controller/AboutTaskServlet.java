@@ -16,15 +16,12 @@ import java.util.List;
 
 @WebServlet({"/messages"})
 public class AboutTaskServlet extends HttpServlet {
-
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("MASSEGERS");
         HttpSession session = req.getSession(true);
-        req.getParameter("task");
-        Task task = (Task) session.getAttribute(req.getParameter("task") + "");
-        System.out.println("TASK="+task.getTaskId());
-        System.out.println("DISC="+task.getDetails());
+        Task task = (Task) session.getAttribute(req.getParameter("task") + ""); System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/about.jsp");
+        req.setAttribute("task", task);
+        dispatcher.forward(req, resp);
     }
 }
