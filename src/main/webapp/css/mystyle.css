@@ -32,9 +32,19 @@ a{
 a:link{
     color: red;
 }
+.allTasks{
+    background-color: bisque;
+}
+.addTasks{
+    background-color: yellowgreen;
+}
+.aboutTask{
+    background-color:aquamarine ;
+}
 
 .list{
     background-color: aqua;
+    border-radius: 2px;
 }
 .toDo{
     background-color: yellowgreen;

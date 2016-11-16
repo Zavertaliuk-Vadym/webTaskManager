@@ -5,7 +5,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
+<div class="aboutTask">
 <input type="submit" value="Home" onclick="window.location='/home'"><br>
 <table>
     <h4>Title:</h4>
@@ -15,5 +17,6 @@
     <h4>Creation time:</h4>
     ${task.localTime}
 </table>
+</div>
 </body>
 </html>
