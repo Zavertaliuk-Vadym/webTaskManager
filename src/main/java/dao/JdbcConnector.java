@@ -3,27 +3,34 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * Created by employee on 11/16/16.
  */
 public class JdbcConnector {
-    private Connection connection;
     private String user = "root";
     private String pass= "school24";
-    private String url="jdbc:mysql://localhost:3306/TaskDao";
+    private String url="jdbc:mysql://localhost:3306/Task";
+    private Connection conn;
 
-    void conn(String url,String pass,String user) throws SQLException, ClassNotFoundException {
-
-
+    JdbcConnector()  {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(url,user,pass);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public Connection getConnection() {
-        return connection;
+    public Connection getConn() {
+        return conn;
     }
 
-    public void setConnection(Connection connection) {
-        this.connection = connection;
+    public void setConn(Connection conn) {
+        this.conn = conn;
     }
+
+
 }

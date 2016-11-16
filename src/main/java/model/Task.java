@@ -17,10 +17,11 @@ public class Task {
     private String localTime ;
 
 
-    public Task(String taskId, String title, String details,String localTime) {
+    public Task(String taskId, String title, String details,boolean view,String localTime) {
         this.taskId = taskId;
         this.title = title;
         this.details = details;
+        this.view = view;
         this.localTime=localTime;
     }
     public boolean getView() {
