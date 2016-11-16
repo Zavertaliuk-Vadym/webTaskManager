@@ -36,8 +36,12 @@ public class TaskDao {
     }
 
     public void setView(String id) throws SQLException {
-        //UPDATE `table` SET view = FALSE WHERE id=1
         String sql = "UPDATE `table` SET view = !view WHERE id="+id;
+        stmt.execute(sql);
+        conn.close();
+    }
+    public void delete(String id) throws SQLException {
+        String sql = "DELETE FROM `table`WHERE id ="+id;
         stmt.execute(sql);
         conn.close();
     }
