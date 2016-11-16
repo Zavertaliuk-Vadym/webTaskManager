@@ -15,14 +15,16 @@ public class Task {
     private String details;
     private boolean view = false;
     private String localTime;
+    private String currentDay;
 
 
-    public Task(int taskId, String title, String details, boolean view, String localTime) {
+    public Task(int taskId, String title, String details, boolean view, String localTime,String currentDay) {
         this.taskId = taskId;
         this.title = title;
         this.details = details;
         this.view = view;
         this.localTime = localTime;
+        this.currentDay = currentDay;
     }
 
     public boolean getView() {
@@ -64,4 +66,13 @@ public class Task {
     public void setLocalTime(String localTime) {
         this.localTime = localTime;
     }
+
+    public String getCurrentDay() {
+        return currentDay;
+    }
+
+    public void setCurrentDay(String currentDay) {
+        this.currentDay = currentDay;
+    }
+
 }

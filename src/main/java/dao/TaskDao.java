@@ -9,9 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by employee on 11/16/16.
- */
 public class TaskDao {
     private Connection conn = null;
     private Statement stmt = null;
@@ -32,7 +29,8 @@ public class TaskDao {
                     , rs.getString("title")
                     , rs.getString("details")
                     , rs.getBoolean("view")
-                    , rs.getString("localTime")));
+                    , rs.getString("localTime")
+                    ,rs.getString("currentDay")));
         }
         conn.close();
         return taskList;
@@ -59,7 +57,8 @@ public class TaskDao {
                     , rs.getString("title")
                     , rs.getString("details")
                     , rs.getBoolean("view")
-                    , rs.getString("localTime")));
+                    , rs.getString("localTime")
+                    ,rs.getString("currentDay")));
         }
         conn.close();
         return taskList;
