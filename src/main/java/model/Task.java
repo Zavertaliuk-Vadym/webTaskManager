@@ -10,14 +10,14 @@ import java.util.List;
  */
 public class Task {
 
-    private String taskId;
+    private int taskId;
     private String title;
     private String details;
     private boolean view = false;
     private String localTime ;
 
 
-    public Task(String taskId, String title, String details,boolean view,String localTime) {
+    public Task(int taskId, String title, String details,boolean view,String localTime) {
         this.taskId = taskId;
         this.title = title;
         this.details = details;
@@ -40,10 +40,6 @@ public class Task {
         this.title = title;
     }
 
-    public String getTaskId() {
-        return taskId;
-    }
-
     public String getDetails() {
         return details;
     }
@@ -54,6 +50,14 @@ public class Task {
 
     public String getLocalTime() {
         return localTime;
+    }
+
+    public int getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 
     public void setLocalTime(String localTime) {

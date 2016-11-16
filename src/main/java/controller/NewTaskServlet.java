@@ -24,18 +24,18 @@ public class NewTaskServlet extends HttpServlet{
         String counterKey = "counter";
         int counter = 1;
 
-        if (session.isNew()){
-            System.out.println("TaskDao servlet session not exist");
-            session.setAttribute(counterKey, counter);
-        } else {
-            System.out.println("TaskDao servlet session exist");
-            try {
-                counter = (Integer)session.getAttribute(counterKey) + 1;
-            }catch (NullPointerException e){
-                session.setAttribute(counterKey, 1);
-            }
-        }
-        session.setAttribute("counter", counter);
+//        if (session.isNew()){
+//            System.out.println("TaskDao servlet session not exist");
+//            session.setAttribute(counterKey, counter);
+//        } else {
+//            System.out.println("TaskDao servlet session exist");
+//            try {
+//                counter = (Integer)session.getAttribute(counterKey) + 1;
+//            }catch (NullPointerException e){
+//                session.setAttribute(counterKey, 1);
+//            }
+//        }
+//        session.setAttribute("counter", counter);
 //        session.setAttribute(counter +"",  new Task(counter + "", req.getParameter("new_task"),req.getParameter("new_description"),new Date(System.currentTimeMillis()).toString()));
         resp.sendRedirect("/home");
     }

@@ -22,11 +22,11 @@ public class TaskDao {
 
     public List<Task> getAll() throws SQLException {
         List<Task> taskList = new ArrayList<>();
-        String sql = "SELECT * FROM new_table";
+        String sql = "SELECT * FROM `table`";
         ResultSet rs = stmt.executeQuery(sql);
         while(rs.next()){
-            System.out.println("!!!"+rs.getString("taskId"));
-            taskList.add(new Task(rs.getString("taskId")
+            System.out.println("!!!"+rs.getString("id"));
+            taskList.add(new Task(rs.getInt("id")
                     ,rs.getString("title")
                     ,rs.getString("details")
                     ,rs.getBoolean("view")
@@ -35,5 +35,21 @@ public class TaskDao {
         conn.close();
         return taskList;
     }
+
+//    public List<Task> getTaskFromId() throws SQLException {
+//        List<Task> taskList = new ArrayList<>();
+//        String sql = "SELECT * FROM new_table where id =";
+//        ResultSet rs = stmt.executeQuery(sql);
+//        while(rs.next()){
+//            taskList.add(new Task(rs.getInt("id")
+//                    ,rs.getString("title")
+//                    ,rs.getString("details")
+//                    ,rs.getBoolean("view")
+//                    ,rs.getString("localTime")));
+//        }
+//        conn.close();
+//        return taskList;
+//    }
+
 
 }
