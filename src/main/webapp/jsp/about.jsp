@@ -3,7 +3,6 @@
 <head>
     <link rel="stylesheet" href="css/mystyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -14,6 +13,9 @@
     ${task.title}<br>
     <h4>Details:</h4>
     ${task.details}<br>
+    <a href="/change?task=${task.taskId}">
+        <i class="material-icons" style="font-size:32px;color: black">spellcheck</i>
+    </a>
     <h4>Creation time:</h4>
     ${task.localTime}
 </table>
