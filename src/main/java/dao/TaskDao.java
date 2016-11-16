@@ -30,7 +30,7 @@ public class TaskDao {
                     , rs.getString("details")
                     , rs.getBoolean("view")
                     , rs.getString("localTime")
-                    ,rs.getString("currentDay")));
+                    , rs.getString("currentDay")));
         }
         conn.close();
         return taskList;
@@ -58,14 +58,14 @@ public class TaskDao {
                     , rs.getString("details")
                     , rs.getBoolean("view")
                     , rs.getString("localTime")
-                    ,rs.getString("currentDay")));
+                    , rs.getString("currentDay")));
         }
         conn.close();
         return taskList;
     }
 
-    public void addTask(String title, String details, String localDate) throws SQLException {
-        String sql = "INSERT INTO `table` (title, details, `localTime`)VALUES ('" + title + "','" + details + "','" + localDate + "');";
+    public void addTask(String title, String details, String localDate, String currentTime) throws SQLException {
+        String sql = "INSERT INTO `table`(title, details, `localTime`, currentDay) VALUES ('" + title + "','" + details + "','" + localDate + "','" + currentTime + "');";
         stmt.execute(sql);
         conn.close();
     }
