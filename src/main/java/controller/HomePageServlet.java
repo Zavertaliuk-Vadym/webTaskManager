@@ -1,5 +1,6 @@
 package controller;
 
+import dao.TaskDao;
 import model.Task;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -28,7 +30,14 @@ public class HomePageServlet extends HttpServlet {
 
         HttpSession session = req.getSession(true);
         List<Task> taskList = new ArrayList<>();
+        try {
+            TaskDao taskDao =  new TaskDao();
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         if (session.isNew())
             System.out.println("Home servlet session not exist");
         else {

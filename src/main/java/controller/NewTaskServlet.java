@@ -25,10 +25,10 @@ public class NewTaskServlet extends HttpServlet{
         int counter = 1;
 
         if (session.isNew()){
-            System.out.println("Task servlet session not exist");
+            System.out.println("TaskDao servlet session not exist");
             session.setAttribute(counterKey, counter);
         } else {
-            System.out.println("Task servlet session exist");
+            System.out.println("TaskDao servlet session exist");
             try {
                 counter = (Integer)session.getAttribute(counterKey) + 1;
             }catch (NullPointerException e){
