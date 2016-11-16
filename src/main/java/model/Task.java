@@ -14,16 +14,17 @@ public class Task {
     private String title;
     private String details;
     private boolean view = false;
-    private String localTime ;
+    private String localTime;
 
 
-    public Task(int taskId, String title, String details,boolean view,String localTime) {
+    public Task(int taskId, String title, String details, boolean view, String localTime) {
         this.taskId = taskId;
         this.title = title;
         this.details = details;
         this.view = view;
-        this.localTime=localTime;
+        this.localTime = localTime;
     }
+
     public boolean getView() {
         return view;
     }

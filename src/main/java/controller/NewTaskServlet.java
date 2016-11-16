@@ -1,5 +1,6 @@
 package controller;
 
+import dao.TaskDao;
 import model.Task;
 
 import javax.servlet.ServletException;
@@ -9,36 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Date;
 
-/**
- * Created by yurik on 14.11.16.
- */
 @WebServlet({"/newTask"})
-public class NewTaskServlet extends HttpServlet{
+public class NewTaskServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(true);
-
-        String counterKey = "counter";
-        int counter = 1;
-
-//        if (session.isNew()){
-//            System.out.println("TaskDao servlet session not exist");
-//            session.setAttribute(counterKey, counter);
-//        } else {
-//            System.out.println("TaskDao servlet session exist");
-//            try {
-//                counter = (Integer)session.getAttribute(counterKey) + 1;
-//            }catch (NullPointerException e){
-//                session.setAttribute(counterKey, 1);
-//            }
-//        }
-//        session.setAttribute("counter", counter);
-//        session.setAttribute(counter +"",  new Task(counter + "", req.getParameter("new_task"),req.getParameter("new_description"),new Date(System.currentTimeMillis()).toString()));
+        try {
+            TaskDao taskDao = new TaskDao();
+            taskDao.addTask(req.getParameter("new_task"), req.getParameter("new_description"), new Date(System.currentTimeMillis()).toString());
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         resp.sendRedirect("/home");
     }
-
-
 }

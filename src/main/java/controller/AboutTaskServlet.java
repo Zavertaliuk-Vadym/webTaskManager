@@ -1,6 +1,7 @@
 package controller;
 
 import com.sun.net.httpserver.HttpServer;
+import dao.TaskDao;
 import model.Task;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +20,15 @@ import java.util.List;
 public class AboutTaskServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(true);
-        Task task = (Task) session.getAttribute(req.getParameter("task") + "");
+        List<Task> taskList = new ArrayList<>();
+        try {
+            TaskDao taskDao = new TaskDao();
+            taskList.addAll(taskDao.viewDescription(req.getParameter("task")));
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/about.jsp");
-        req.setAttribute("task", task);
+        req.setAttribute("taskList", taskList);
         dispatcher.forward(req, resp);
     }
 }

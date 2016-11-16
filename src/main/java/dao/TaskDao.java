@@ -2,7 +2,10 @@ package dao;
 
 import model.Task;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,25 +27,48 @@ public class TaskDao {
         List<Task> taskList = new ArrayList<>();
         String sql = "SELECT * FROM `table`";
         ResultSet rs = stmt.executeQuery(sql);
-        while(rs.next()){
+        while (rs.next()) {
             taskList.add(new Task(rs.getInt("id")
-                    ,rs.getString("title")
-                    ,rs.getString("details")
-                    ,rs.getBoolean("view")
-                    ,rs.getString("localTime")));
+                    , rs.getString("title")
+                    , rs.getString("details")
+                    , rs.getBoolean("view")
+                    , rs.getString("localTime")));
         }
         conn.close();
         return taskList;
     }
 
     public void setView(String id) throws SQLException {
-        String sql = "UPDATE `table` SET view = !view WHERE id="+id;
+        String sql = "UPDATE `table` SET view = !view WHERE id=" + id;
         stmt.execute(sql);
         conn.close();
     }
+
     public void delete(String id) throws SQLException {
-        String sql = "DELETE FROM `table`WHERE id ="+id;
+        String sql = "DELETE FROM `table`WHERE id =" + id;
         stmt.execute(sql);
         conn.close();
     }
+
+    public List<Task> viewDescription(String id) throws SQLException {
+        List<Task> taskList = new ArrayList<>();
+        String sql = "SELECT * FROM `table` WHERE id=" + id;
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()) {
+            taskList.add(new Task(rs.getInt("id")
+                    , rs.getString("title")
+                    , rs.getString("details")
+                    , rs.getBoolean("view")
+                    , rs.getString("localTime")));
+        }
+        conn.close();
+        return taskList;
+    }
+
+    public void addTask(String title, String details, String localDate) throws SQLException {
+        String sql = "INSERT INTO `table` (title, details, `localTime`)VALUES ('" + title + "','" + details + "','" + localDate + "');";
+        stmt.execute(sql);
+        conn.close();
+    }
+
 }

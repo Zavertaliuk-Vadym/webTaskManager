@@ -13,15 +13,13 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet({"/view"})
-public class ViewServlet  extends HttpServlet {
+public class ViewServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            TaskDao taskDao =  new TaskDao();
+            TaskDao taskDao = new TaskDao();
             taskDao.setView(req.getParameter("task"));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         resp.sendRedirect("/home");

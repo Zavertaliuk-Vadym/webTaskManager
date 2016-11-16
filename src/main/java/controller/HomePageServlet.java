@@ -17,43 +17,17 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by employee on 11/15/16.
- */
 @WebServlet({"/home"})
 public class HomePageServlet extends HttpServlet {
-
-    private String counterKey = "counter";
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        HttpSession session = req.getSession(true);
         List<Task> taskList = new ArrayList<>();
         try {
-            TaskDao taskDao =  new TaskDao();
+            TaskDao taskDao = new TaskDao();
             taskList.addAll(taskDao.getAll());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-//        if (session.isNew())
-//            System.out.println("Home servlet session not exist");
-//        else {
-//            int listLength = (Integer) session.getAttribute(counterKey);
-//            System.out.println("Home servlet session exist, listLength = " + listLength);
-//            for (int i = 1; i <= listLength; i++) {
-//                try {
-//                    Task task = (Task) session.getAttribute(i + "");
-//                    if(!task.getTitle().isEmpty()){
-//                      taskList.add(task);
-//                    }
-//                }catch (NullPointerException e){
-//                }
-//            }
-//        }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
         req.setAttribute("taskList", taskList);
         dispatcher.forward(req, resp);

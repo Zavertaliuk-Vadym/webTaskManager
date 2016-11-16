@@ -7,18 +7,17 @@
 
 <body>
 <div class="aboutTask">
-<input type="submit" value="Home" onclick="window.location='/home'"><br>
-<table>
-    <h4>Title:</h4>
-    ${task.title}<br>
-    <h4>Details:</h4>
-    ${task.details}<br>
-    <a href="/change?task=${task.taskId}">
-        <i class="material-icons" style="font-size:32px;color: black">spellcheck</i>
-    </a>
-    <h4>Creation time:</h4>
-    ${task.localTime}
-</table>
+    <input type="submit" value="Home" onclick="window.location='/home'"><br>
+    <table>
+        <c:forEach items="${taskList}" var="task">
+            <h4>Title:</h4>
+            ${task.title}<br>
+            <h4>Details:</h4>
+            ${task.details}<br>
+            <h4>Creation time:</h4>
+            ${task.localTime}
+        </c:forEach>
+    </table>
 </div>
 </body>
 </html>
