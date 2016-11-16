@@ -25,7 +25,6 @@ public class TaskDao {
         String sql = "SELECT * FROM `table`";
         ResultSet rs = stmt.executeQuery(sql);
         while(rs.next()){
-            System.out.println("!!!"+rs.getString("id"));
             taskList.add(new Task(rs.getInt("id")
                     ,rs.getString("title")
                     ,rs.getString("details")
@@ -36,20 +35,10 @@ public class TaskDao {
         return taskList;
     }
 
-//    public List<Task> getTaskFromId() throws SQLException {
-//        List<Task> taskList = new ArrayList<>();
-//        String sql = "SELECT * FROM new_table where id =";
-//        ResultSet rs = stmt.executeQuery(sql);
-//        while(rs.next()){
-//            taskList.add(new Task(rs.getInt("id")
-//                    ,rs.getString("title")
-//                    ,rs.getString("details")
-//                    ,rs.getBoolean("view")
-//                    ,rs.getString("localTime")));
-//        }
-//        conn.close();
-//        return taskList;
-//    }
-
-
+    public void setView(String id) throws SQLException {
+        //UPDATE `table` SET view = FALSE WHERE id=1
+        String sql = "UPDATE `table` SET view = !view WHERE id="+id;
+        stmt.execute(sql);
+        conn.close();
+    }
 }
