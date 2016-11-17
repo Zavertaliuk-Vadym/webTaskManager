@@ -1,10 +1,10 @@
 package model;
 
-public class TaskName {
+public class ListName {
     private int id;
     private String name;
 
-    public TaskName(int id, String name) {
+    public ListName(int id, String name) {
         this.id = id;
         this.name = name;
     }

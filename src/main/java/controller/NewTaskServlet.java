@@ -20,7 +20,7 @@ public class NewTaskServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             TaskDao taskDao = new TaskDao();
-            taskDao.addTask(req.getParameter("new_task"), req.getParameter("new_description"), new Date(System.currentTimeMillis()).toString(),req.getParameter("new_currentTime"));
+            taskDao.addTask(req.getParameter("new_task"), req.getParameter("new_description"), new Date(System.currentTimeMillis()).toString(),req.getParameter("new_currentTime"), Integer.parseInt(req.getParameter("new_list")));
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

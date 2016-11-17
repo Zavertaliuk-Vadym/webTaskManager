@@ -1,8 +1,9 @@
 package controller;
 
+import dao.ListDao;
 import dao.TaskDao;
 import model.Task;
-import model.TaskName;
+import model.ListName;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,12 +21,12 @@ public class AboutTaskServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Task> taskList = new ArrayList<>();
-        List<TaskName> listLists = new ArrayList<>();
+        List<ListName> listLists = new ArrayList<>();
         try {
             TaskDao taskDao = new TaskDao();
             taskList.addAll(taskDao.viewDescription(req.getParameter("task")));
-            TaskDao taskDao1 = new TaskDao();
-            listLists.addAll(taskDao1.getAllLists(req.getParameter("listId")));
+            ListDao listDao = new ListDao();
+            listLists.addAll(listDao.getListTasksFromCurrentTask(req.getParameter("listId")));
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

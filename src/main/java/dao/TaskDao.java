@@ -1,7 +1,7 @@
 package dao;
 
 import model.Task;
-import model.TaskName;
+import model.ListName;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -21,7 +21,7 @@ public class TaskDao {
         System.out.println("Connecting to database...");
     }
 
-    public List<Task> getAll() throws SQLException {
+    public List<Task> getAllTasks() throws SQLException {
         List<Task> taskList = new ArrayList<>();
         String sql = "SELECT * FROM `table`";
         ResultSet rs = stmt.executeQuery(sql);
@@ -69,23 +69,10 @@ public class TaskDao {
         return taskList;
     }
 
-    public void addTask(String title, String details, String localDate, String currentTime) throws SQLException {
-        String sql = "INSERT INTO `table`(title, details, `localTime`, currentDay) VALUES ('" + title + "','" + details + "','" + localDate + "','" + currentTime + "');";
+    public void addTask(String title, String details, String localDate, String currentTime,int task) throws SQLException {
+        String sql = "INSERT INTO `table`(title, details, `localTime`, currentDay,list_id) VALUES ('" + title + "','" + details + "','" + localDate + "','" + currentTime + "','" + task +"');";
         stmt.execute(sql);
-        conn.close();
-    }
-
-    public List<TaskName> getAllLists(String idOfList) throws SQLException {
-        List<TaskName> listLists = new ArrayList<>();
-       // String sql = "SELECT * FROM `list`";
-        String sql = "SELECT list.id,list.name FROM list WHERE id ="+idOfList;
-        ResultSet rs = stmt.executeQuery(sql);
-        while (rs.next()) {
-            listLists.add(new TaskName(rs.getInt("id")
-                    , rs.getString("name")));
-        }
-        conn.close();
-        return listLists;
+                conn.close();
     }
 
 
