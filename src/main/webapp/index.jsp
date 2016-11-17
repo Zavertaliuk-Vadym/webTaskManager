@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <style type="text/css">
@@ -41,7 +41,7 @@
     }
 
     .allTasks {
-        background-color: bisque;
+        background-color: cyan;
     }
 
     .addTasks {
@@ -53,7 +53,7 @@
     }
 
     .list {
-        background-color: aqua;
+        background-color: pink;
         border-radius: 2px;
     }
 
@@ -87,7 +87,7 @@
                             </td>
                             <td>
                                 <a href="/view?task=${task.taskId}">
-                                    <i class="material-icons" style="font-size:32px;color: black">speaker_notes</i>
+                                    <i class="material-icons" style="font-size:32px;color: black">indeterminate_check_box</i>
                                 </a>
                             </td>
                     </c:if>
@@ -116,7 +116,7 @@
                         </td>
                         <td>
                             <a href="/view?task=${task.taskId}">
-                                <i class="material-icons" style="font-size:32px;color: green">speaker_notes_off</i>
+                                <i class="material-icons" style="font-size:32px;color: black">check_box</i>
 
                             </a>
                         </td>
