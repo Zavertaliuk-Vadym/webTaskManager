@@ -16,15 +16,17 @@ public class Task {
     private boolean view = false;
     private String localTime;
     private String currentDay;
+    private int list_id ;
 
 
-    public Task(int taskId, String title, String details, boolean view, String localTime,String currentDay) {
+    public Task(int taskId, String title, String details, boolean view, String localTime,String currentDay,int list_id) {
         this.taskId = taskId;
         this.title = title;
         this.details = details;
         this.view = view;
         this.localTime = localTime;
         this.currentDay = currentDay;
+        this.list_id=list_id;
     }
 
     public boolean getView() {
@@ -73,6 +75,14 @@ public class Task {
 
     public void setCurrentDay(String currentDay) {
         this.currentDay = currentDay;
+    }
+
+    public int getList_id() {
+        return list_id;
+    }
+
+    public void setList_id(int list_id) {
+        this.list_id = list_id;
     }
 
 }

@@ -25,7 +25,7 @@ public class AboutTaskServlet extends HttpServlet {
             TaskDao taskDao = new TaskDao();
             taskList.addAll(taskDao.viewDescription(req.getParameter("task")));
             TaskDao taskDao1 = new TaskDao();
-            listLists.addAll(taskDao1.getAllLists());
+            listLists.addAll(taskDao1.getAllLists(req.getParameter("listId")));
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

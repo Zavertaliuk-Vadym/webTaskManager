@@ -18,7 +18,7 @@
                                 ${task.title}
                         </td>
                         <td>
-                            <a href="/messages?task=${task.taskId}">
+                            <a href="/messages?task=${task.taskId}&listId=${task.list_id}">
                                 <i class="material-icons" style="font-size:32px; color: blue;">pageview</i>
                             </a>
                         </td>

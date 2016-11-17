@@ -31,7 +31,8 @@ public class TaskDao {
                     , rs.getString("details")
                     , rs.getBoolean("view")
                     , rs.getString("localTime")
-                    , rs.getString("currentDay")));
+                    , rs.getString("currentDay")
+                    ,rs.getInt("list_id")));
         }
         conn.close();
         return taskList;
@@ -52,6 +53,8 @@ public class TaskDao {
     public List<Task> viewDescription(String id) throws SQLException {
         List<Task> taskList = new ArrayList<>();
         String sql = "SELECT * FROM `table` WHERE id=" + id;
+//        String sql = "SELECT `table`.id,title, details,view,`localTime`,currentDay,list.name FROM `table`,list WHERE list_id = list.id AND `table`.id LIKE1";
+        //SELECT title, details,view,`localTime`,currentDay,list.name FROM `table`,list WHERE list_id = list.id AND `table`.id LIKE '4'
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()) {
             taskList.add(new Task(rs.getInt("id")
@@ -59,7 +62,8 @@ public class TaskDao {
                     , rs.getString("details")
                     , rs.getBoolean("view")
                     , rs.getString("localTime")
-                    , rs.getString("currentDay")));
+                    , rs.getString("currentDay")
+                    ,rs.getInt("list_id")));
         }
         conn.close();
         return taskList;
@@ -71,9 +75,10 @@ public class TaskDao {
         conn.close();
     }
 
-    public List<TaskName> getAllLists() throws SQLException {
+    public List<TaskName> getAllLists(String idOfList) throws SQLException {
         List<TaskName> listLists = new ArrayList<>();
-        String sql = "SELECT * FROM `list`";
+       // String sql = "SELECT * FROM `list`";
+        String sql = "SELECT list.id,list.name FROM list WHERE id ="+idOfList;
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()) {
             listLists.add(new TaskName(rs.getInt("id")
