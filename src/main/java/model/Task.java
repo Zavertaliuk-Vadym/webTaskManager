@@ -1,5 +1,9 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,14 +12,22 @@ import java.util.List;
 /**
  * Created by employee on 11/15/16.
  */
+@Entity
+@Table(name = "table")
 public class Task {
-
+    @Id
     private int taskId;
+    @Column(name = "title")
     private String title;
+    @Column(name = "details")
     private String details;
+    @Column(name = "view")
     private boolean view = false;
+    @Column(name = "localTime")
     private String localTime;
+    @Column(name = "currentDay")
     private String currentDay;
+    @Column(name = "list_id")
     private int list_id ;
 
 
@@ -27,6 +39,9 @@ public class Task {
         this.localTime = localTime;
         this.currentDay = currentDay;
         this.list_id=list_id;
+    }
+
+    public Task() {
     }
 
     public boolean getView() {
