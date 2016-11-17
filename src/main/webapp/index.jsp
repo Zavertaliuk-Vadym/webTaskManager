@@ -1,9 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+<body>
 <div class="allTasks">
     <input type="submit" value="Add Task" onclick="window.location='jsp/add_task.jsp'" style="font-size:12px"><br>
 

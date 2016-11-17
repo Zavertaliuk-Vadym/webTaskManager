@@ -16,6 +16,16 @@
             ${task.details}<br>
             <h4>Creation time:</h4>
             ${task.localTime}
+            <h4>Current time:</h4>
+            ${task.currentDay}
+        </c:forEach>
+    </table>
+    <table>
+        <c:forEach items="${listLists}" var="list">
+            <h4>List:</h4>
+            ${list.id}<br>
+            <h4>Name:</h4>
+            ${list.name}<br>
         </c:forEach>
     </table>
 </div>

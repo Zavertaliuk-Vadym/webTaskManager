@@ -1,7 +1,6 @@
 <html>
 <head>
-    <link rel="stylesheet" href="../css/mystyle.css">
-
+    <link rel="stylesheet" href="css/mystyle.css">
 </head>
 <body>
 <div class="addTasks">
@@ -9,6 +8,7 @@
     <form action="/newTask">
         <input type="text" name="new_task" placeholder="add task" required>
         <input type="text" name="new_description" placeholder="add description">
+        <input type="text" name="new_currentTime" placeholder="add current time">
         <input type="submit" value="Add Task"><br>
     </form>
 </div>

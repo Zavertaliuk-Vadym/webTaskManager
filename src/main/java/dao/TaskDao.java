@@ -1,6 +1,7 @@
 package dao;
 
 import model.Task;
+import model.TaskName;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -69,5 +70,18 @@ public class TaskDao {
         stmt.execute(sql);
         conn.close();
     }
+
+    public List<TaskName> getAllLists() throws SQLException {
+        List<TaskName> listLists = new ArrayList<>();
+        String sql = "SELECT * FROM `list`";
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()) {
+            listLists.add(new TaskName(rs.getInt("id")
+                    , rs.getString("name")));
+        }
+        conn.close();
+        return listLists;
+    }
+
 
 }
