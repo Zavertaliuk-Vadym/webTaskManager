@@ -2,6 +2,9 @@ package dao;
 
 import model.Task;
 import model.ListName;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,7 +16,7 @@ import java.util.List;
 public class TaskDao {
     private Connection conn = null;
     private Statement stmt = null;
-
+    private static SessionFactory factory;
 
     public TaskDao() throws SQLException, ClassNotFoundException {
         conn = new JdbcConnector().getConn();
@@ -75,5 +78,29 @@ public class TaskDao {
                 conn.close();
     }
 
+//    public void setTask() throws SQLException {
+//        Session session = factory.openSession();
+//        Transaction tx = null;
+//        Integer employeeID = null;
+//        tx = session.beginTransaction();
+//        Task task =  new Task();
+//        task.setTaskId(24);
+//        task.setTitle("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQq");
+//        task.setDetails("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwww");
+//        task.setView(true);
+//        task.setLocalTime("1111111111111111111111111111111111111111");
+//        task.setCurrentDay("2222222222222222222222222222222222222222222");
+//        task.setList_id(1);
+//        tx.commit();
+////        List<ListName> listLists = new ArrayList<>();
+////        String sql = "SELECT * FROM `list`";
+////        ResultSet rs = stmt.executeQuery(sql);
+////        while (rs.next()) {
+////            listLists.add(new ListName(rs.getInt("id")
+////                    , rs.getString("name")));
+////        }
+////        conn.close();
+////        return listLists;
+//    }
 
 }

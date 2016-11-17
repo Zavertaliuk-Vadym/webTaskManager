@@ -1,6 +1,10 @@
 package dao;
 
 import model.ListName;
+import model.Task;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,7 +19,7 @@ import java.util.List;
 public class ListDao {
     private Connection conn = null;
     private Statement stmt = null;
-
+    private static SessionFactory factory;
 
     public ListDao() throws SQLException, ClassNotFoundException {
         conn = new JdbcConnector().getConn();
@@ -24,17 +28,17 @@ public class ListDao {
     }
 
 
-    public List<ListName> getLAllListsOfTasks() throws SQLException {
-        List<ListName> listLists = new ArrayList<>();
-        String sql = "SELECT * FROM `list`";
-        ResultSet rs = stmt.executeQuery(sql);
-        while (rs.next()) {
-            listLists.add(new ListName(rs.getInt("id")
-                    , rs.getString("name")));
-        }
-        conn.close();
-        return listLists;
-    }
+//    public List<ListName> getLAllListsOfTasks() throws SQLException {
+//        List<ListName> listLists = new ArrayList<>();
+//        String sql = "SELECT * FROM `list`";
+//        ResultSet rs = stmt.executeQuery(sql);
+//        while (rs.next()) {
+//            listLists.add(new ListName(rs.getInt("id")
+//                    , rs.getString("name")));
+//        }
+//        conn.close();
+//        return listLists;
+//    }
 
 
     public List<ListName> getListTasksFromCurrentTask(String idOfList) throws SQLException {
@@ -49,4 +53,5 @@ public class ListDao {
         conn.close();
         return listLists;
     }
+
 }
