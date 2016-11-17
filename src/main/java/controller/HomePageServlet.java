@@ -33,7 +33,7 @@ public class HomePageServlet extends HttpServlet {
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
         req.setAttribute("taskList", taskList);
-        req.setAttribute("listLists",listList);
+//        req.setAttribute("listLists",listList);
         dispatcher.forward(req, resp);
     }
 }
